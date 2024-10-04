@@ -1,0 +1,62 @@
+body{
+    background: skyblue;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.o{
+    animation: t1 2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+#con{
+    margin-top: 100px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: t 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+button{
+    margin-top: 200px;
+    position: absolute;
+    transition-duration: 2s;
+    cursor: pointer;
+}
+button:hover{
+    animation: t 10s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+.con1{
+    animation: t 5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+a{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-decoration: none;
+    color: black;
+    width: 100px;
+    height: 100px;
+    background: salmon;
+    border-radius: 100px;
+    
+}
+@keyframes t{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes t1{
+    from{
+        background-color: rgb(47, 219, 41);
+        transform: rotate(0deg);
+    }
+    to{
+        background-color: blue;
+        transform: rotate(360deg);
+    }
+}
