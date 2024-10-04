@@ -1,6 +1,12 @@
 body{
     background: skyblue;
 }
+nav{
+    display: block;
+}
+footer{
+    display: block;
+}
 img{
     width: 100px;
     height: 100px;
@@ -9,6 +15,7 @@ img{
     animation: t1 2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
 }
 #con{
+    padding: 100px;
     margin-top: 100px;
     width: 100vw;
     height: 100vh;
