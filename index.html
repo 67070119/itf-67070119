@@ -7,21 +7,80 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div id="con">
-        <h1>555</h>
-        <nav>erer</nav>
-        <footer>sds</footer>
-        <img src="https://th.portal-pokemon.com/play/resources/pokedex/img/pm/5794f0251b1180998d72d1f8568239620ff5279c.png"></mg>
-        <img src="https://th.portal-pokemon.com/play/resources/pokedex/img/pm/d0ee81f16175c97770192fb691fdda8da1f4f349.png">
-        <button onclick="click1()">Click me</button>
-        <a class="o" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fth.portal-pokemon.com%2Fplay%2Fpokedex%2F0007&psig=AOvVaw2rJWpnSu8hvIg4FKEwgJxS&ust=1728102612799000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD6hoby84gDFQAAAAAdAAAAABAJ"><p>pokemon</p></a>
+    <div class="con">
+        <a href="https://github.com/pisitponjanton" target="_blank" id="uu" class="hh">MR.PISITPON JANTON 67070119</a>
+        <div class="img" id="tt">
+            <div class="n">
+                <p>1</p>
+            </div>
+        </div>
+    </div>
+    <div class="con">
+        <div class="inpp">
+            <p>Set the Username :</p>
+            <input id="username" type="text">
+            <button onclick="U()">SET</button>
+            <p>Set the URL :</p>
+            <input type="text" id="urll1">
+            <button onclick="ur()">SET</button>
+        </div>
+        <h1>Phone Number List</h1>
+        <div class="inpp1">
+            <input id="name" placeholder="name" type="text">
+            <input id="Tel" placeholder="Tel" type="text">
+            <button onclick="addPhoneNumber()">ADD</button>
+            <button onclick="exportToCSV()">EXPORT</button>
+        </div>
+    </div>
+    <div class="con22">
+        <div class="con2"><h4>No</h4><h4>Name</h4><h4>Phone</h4></div>
     </div>
 </body>
-    <script>
-        let c1 = document.getElementById("con");
-        function click1(){
-            c1.classList.toggle("con1");
-            alert("efefrw")
+<script>
+    let count = 0; 
+    const phoneBook = {}; 
+    function U(){
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        document.getElementById("uu").innerHTML = username;
+    }
+    function ur(){
+        event.preventDefault();
+        const uuu = document.getElementById("urll1").value;
+        document.getElementById("tt").style.backgroundImage = `url(${uuu})`;
+    }
+    function addPhoneNumber() {
+            const name = document.getElementById("name").value;
+            const tel = document.getElementById("Tel").value;
+            if (name && tel) {
+                count++;
+                phoneBook[count] = { name: name, phone: tel };
+                const phoneList = document.querySelector('.con22');
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'con2';
+                entryDiv.innerHTML = `<h4>${count}</h4><h4>${name}</h4><h4>${tel}</h4>`;
+                phoneList.appendChild(entryDiv);
+                document.getElementById("name").value = '';
+                document.getElementById("Tel").value = '';
+            }else {
+                alert("Please enter both name and phone number.");
+            }
+    }
+    function exportToCSV() {
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "No,Name,Phone\n";
+            for (let key in phoneBook) {
+                const entry = phoneBook[key];
+                const row = `${key},${entry.name},${entry.phone}`;
+                csvContent += row + "\n";
+            }
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "phone_book.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
-    </script>
+</script>
 </html>
